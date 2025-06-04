@@ -1,69 +1,70 @@
 
 from tkinter import *
 from tkinter import ttk
-from tkinter import messagebox
 
 
-def ok():
+#окно для сбора информации о персонаже и вывод на другом окне
 
-    def o():
-        com=name_entry.get()
-        co=class_pers.get()
-        cm=rassa.get()
-        c=horizontalScale.get()
-        ca=sposob_entry.get()
-        a=py_check.get()
-        f=p_check.get()
-        g=y_check.get()
-        hh=check.get()
-        pp=gender_but.get()
-        ii=gender_but_2.get()
-        i=gender_but.get()
-        u=gender_ut_2.get()
+def creature():
 
-    w=Toplevel()
-    w.title("yees")
-    w.geometry("400x400")
-    win.resizable(False, False)
+    def go():
+        name=name_entry.get()
+        pers=class_pers_combo.get()
+        race=race_combo.get()
+        level=level_scale.get()
+        ability=ability_entry.get()
+        fireball=fireball_check.get()
+        treatment=treatment_check.get()
+        invisibility=invisibility_check.get()
+        hacking=hacking_check.get()
+        sword=sword_radio.get()
+        onion=onion_radio.get()
+        stick=stick_radio.get()
+        dagger=dagger_radio.get()
 
-    lable_name =Label(w, text=f"Имя: {com}")
-    lable_name.pack()
+    window=Toplevel()
+    window.title("yees")
+    window.geometry("400x400")
+    window.resizable(False, False)
 
-    labe_name =Label(w, text=f"{co}")
-    labe_name.pack()
+    lable_name =Label(window, text=f"name: {name}")
+    lable_name.grid(row=1)
 
-    lale_name =Label(w, text=f"{cm}")
-    lale_name.pack()
+    lable_pers =Label(window, text=f"character: {pers}")
+    lable_pers.grid(row=2)
 
-    able_name =Label(w, text=f"{c}")
-    able_name.pack()
+    lable_race =Label(window, text=f"race: {race}")
+    lable_race.grid(row=3)
 
-    labl_name =Label(w, text=f"{ca}")
-    labl_name.pack()
+    lable_level =Label(window, text=f"level: {level}")
+    lable_level.grid(row=4)
 
-    lable_nam =Label(w, text=f"{a}")
-    lable_nam.pack()
+    lable_ability=Label(window, text=f"ability: {ability}")
+    lable_ability.grid(row=5)
 
-    lable_nae =Label(w, text=f"{f}")
-    lable_nae.pack()
+    lable_fireball =Label(window, text=f"fireball: {fireball}")
+    lable_fireball.grid(row=6, column=1)
 
-    lable_nme =Label(w, text=f"{g}")
-    lable_ame.pack()
+    lable_treatmen =Label(window, text=f"treatmen: {treatmen}")
+    lable_treatmen.grid(row=6, column=2)
 
-    lable_ame =Label(w, text=f"{hh}")
-    lable_ame.pack()
+    lable_invisibility =Label(window, text=f"invisibility: {invisibility}")
+    lable_invisibility.grid(row=6,column=3)
 
-    lablename =Label(w, text=f"{pp}")
-    lablename.pack()
+    lable_hacking =Label(window, text=f"hacking: {hacking}")
+    lable_hacking.grid(row=6,column=4)
 
-    lble_name =Label(w, text=f"{ii}")
-    lble_name.pack()
+    sword_label =Label(window, text=f"sword: {sword}")
+    sword_label.grid(row=7,column=1)
 
-    labe_name =Label(w, text=f"{i}")
-    labe_name.pack()
+    lable_onion =Label(window, text=f"onion: {onion}")
+    lable_onion.grid(row=7,column=2)
 
-    lable1_name =Label(w, text=f"{u}")
-    lable1_name.pack()
+    lable_stick =Label(window, text=f"stick: {stick}")
+    lable_stick.grid(row=7,column=3)
+
+    lable_dagger =Label(window, text=f"dagger:{dagger}")
+    lable_dagger.grid(row=7,column=4)
 
 
     win = Toplevel() 
@@ -76,55 +77,56 @@ def ok():
     name_entry=ttk.Entry(content_1)
     name_entry.grid(row=1)
 
-    ok=["Воин","Маг","Лучник","Вор"]
-    class_pers= ttk.Combobox(content_1, values=ok) 
-    class_pers.grid(row=2)
+    info=["Воин","Маг","Лучник","Вор"]
+    class_pers_combo= ttk.Combobox(content_1, values=info) 
+    class_pers_combo.grid(row=2)
 
-    am=["Человек","Эльф","Орк","Гном"]
-    rassa=ttk.Combobox(content_1, values=am)
-    rassa.grid(row=3)
+    info_2=["Человек","Эльф","Орк","Гном"]
+    race_combo=ttk.Combobox(content_1, values=info_2)
+    race_combo.grid(row=3)
 
-    horizontalScale = ttk.Scale(orient=HORIZONTAL, length=200, from_=1.0, to=100.0, value=30)
-    horizontalScale.grid(row=4)
+    level_scale = ttk.Scale(orient=HORIZONTAL, length=200, from_=1.0, to=50.0, value=30)
+    level_scale.grid(row=4)
 
-    sposob_entry=ttk.Entry(content_1)
-    sposob_entry.grid(row=5)
+    ability_entry=ttk.Entry(content_1)
+    ability_entry.grid(row=5)
 
-    python = IntVar()
-    py_check=ttk.Checkbutton(content_1,text="Огненый шар",variable=python)
-    py_check.grid(pady=5,padx=40,row=6,column=1)
+    fireball = IntVar()
+    fireball_check=ttk.Checkbutton(content_1,text="Огненый шар",variable=fireball)
+    fireball_check.grid(pady=5,padx=40,row=6,column=1)
 
-    pytho = IntVar()
-    p_check=ttk.Checkbutton(content_1,text="Лечение",variable=pytho)
-    p_check.grid(pady=5,padx=40,row=6,column=2)
+    treatment = IntVar()
+    treatment_check=ttk.Checkbutton(content_1,text="Лечение",variable=treatment)
+    treatment_check.grid(pady=5,padx=40,row=6,column=2)
 
-    pyhon = IntVar()
-    y_check=ttk.Checkbutton(content_1,text="Невидимость",variable=pyhon)
-    y_check.grid(pady=5,padx=40,row=6,column=3)
+    invisibility = IntVar()
+    invisibility_check=ttk.Checkbutton(content_1,text="Невидимость",variable=invisibility)
+    invisibility_check.grid(pady=5,padx=40,row=6,column=3)
 
-    ython = IntVar()
-    check=ttk.Checkbutton(content_1,text="Взлом",variable=ython)
-    check.grid(pady=5,padx=40,row=6,column=4)
+    hacking = IntVar()
+    hacking_check=ttk.Checkbutton(content_1,text="Взлом",variable=hacking)
+    hacking_check.grid(pady=5,padx=40,row=6,column=4)
 
-    lang = StringVar(value="Меч")
-    
-    gender_but=ttk.Radiobutton(content_1,text="",value="Меч", variable=lang)
-    gender_but.grid(row=6,column= 1)
+    sword = StringVar(value="Меч")
+    sword_radio=ttk.Radiobutton(content_1,text="",value="Меч", variable=sword)
+    sword_radio.grid(row=6,column= 1)
 
-    gender_but_2=ttk.Radiobutton(content_1,value="Лук", variable=lang,text="Лук")
-    gender_but_2.grid(row=6,column=2)
+    onion_radio=ttk.Radiobutton(content_1,value="Лук", variable=sword,text="Лук")
+    onion_radio.grid(row=6,column=2)
 
-    gender_but=ttk.Radiobutton(content_1,value="Посох", variable=lang,text="Посох")
-    gender_but.grid(row=6,column=3)
+    stick_radio=ttk.Radiobutton(content_1,value="Посох", variable=sword,text="Посох")
+    stick_radio.grid(row=6,column=3)
 
-    gender_ut_2=ttk.Radiobutton(content_1,value="Кинжал", variable=lang,text="Кинжал")
-    gender_ut_2.grid(row=6,column=4)
+    dagger_radio=ttk.Radiobutton(content_1,value="Кинжал", variable=sword,text="Кинжал")
+    dagger_radio.grid(row=6,column=4)
 
-    bth=Button(content_1,text="GO",command=o)
+    bth=Button(content_1,text="GO",command=go)
     bth.grid(row=7)
 
     content_1.pack()
     
+
+#главное окно
 
 root = Tk()
 root.title("pers")
@@ -134,14 +136,14 @@ root.resizable(False, False)
 content = Frame(root)
 content.pack(fill="x")
 
-label = ttk.Label(content, text="Welcome", font=("Arial", 20))
-label.pack(pady=3)
+label_name = ttk.Label(content, text="Welcome", font=("Arial", 20))
+label_name.pack(pady=3)
 
-label_1 = ttk.Label(content, text="Start creating a character!", font=("Arial", 10))
-label_1.pack(pady=5)
+label_description = ttk.Label(content, text="Start creating a character!", font=("Arial", 10))
+label_description.pack(pady=5)
 
-bth=Button(content,bg="red",text="Go", width=20, height=5,command=ok)
-bth.pack(pady=10)
+bth_go=Button(content,bg="red",text="Go", width=20, height=5,command=creature)
+bth_go.pack(pady=10)
 
 content.pack()
 
